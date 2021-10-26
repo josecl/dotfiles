@@ -37,11 +37,11 @@ brew 'php'
 brew 'php@7.4'
 brew 'composer'
 brew 'imagemagick'
-brew 'libmemcached'
+#brew 'libmemcached'
 brew 'meilisearch'
-brew 'memcached'
-brew 'mysql'
-brew 'nginx'
+#brew 'memcached'
+#brew 'mysql'
+#brew 'nginx'
 brew 'node'
 brew 'redis'
 brew 'yarn'
@@ -99,3 +99,18 @@ mas 'Spark', id: 1176895641
 mas 'Speedtest', id: 1153157709
 mas 'Things', id: 904280696
 mas 'Tweetbot', id: 1384080005
+
+# Extra Jose
+brew 'brotli'
+brew 'cowsay'
+brew 'fzf'
+brew 'htop'
+# brew 'kubernetes-cli'
+brew 'minio-mc'
+brew 'pgcli'
+brew 'postgresql'
+brew 'siege'
+brew 'z'
+cask 'docker' # Docker Desktop
+cask 'font-jetbrains-mono'
+
