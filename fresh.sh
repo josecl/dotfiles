@@ -31,6 +31,21 @@ pecl install imagick memcached redis swoole
 # Install Laravel Valet
 #$HOME/.composer/vendor/bin/valet install
 
+
+# Aplicaciones via npm
+npm install puppeteer --global
+npm install chokidar --global
+
+# Deshabilita pager en Git
+#git config --global core.pager cat
+git config --global pager.diff false
+git config --global pager.status false
+git config --global pager.log true
+
+git config --global user.email "jose.rodriguez@zecovery.com"
+git config --global user.name "Jose Rodriguez"
+
+
 # Create a Sites directory
 # mkdir $HOME/Sites
 mkdir $HOME/desa
