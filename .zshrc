@@ -126,11 +126,14 @@ alias k=kubecolor
 compdef k=kubectl
 compdef kubecolor=kubectl
 
-alias poc="export KUBECONFIG=~/.kube/config-huawei-poc"
 
 
 
+##
 ## Configruaciones que deben ir al final del .zshrc en un orden específico
+##
+##
+##
 
 # brew install zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
