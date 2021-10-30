@@ -26,6 +26,7 @@ alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 
 # Docker
 alias dc="docker-compose"
+alias app="docker-compose exec --user $(id -u):$(id -g) app"
 
 # Kubernetes
 alias kubectl="kubecolor"

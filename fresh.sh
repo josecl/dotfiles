@@ -23,7 +23,16 @@ brew bundle
 #mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
 
 # Install PHP extensions with PECL
-pecl install imagick memcached redis swoole
+cp /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
+pecl pcov install imagick memcached redis swoole
+
+
+# Php74
+ln -s /opt/homebrew/opt/php@7.4/bin/php php74
+ln -s /opt/homebrew/opt/php@7.4/bin/pecl pecl74
+cp /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php@7.4/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
+pecl74 apcu install imagick redis 
+
 
 # Install global Composer packages
 #/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose
@@ -38,9 +47,11 @@ npm install chokidar --global
 
 # Deshabilita pager en Git
 #git config --global core.pager cat
-git config --global pager.diff false
-git config --global pager.status false
 git config --global pager.log true
+git config --global pager.branch false
+git config --global pager.diff false
+git config --global pager.tag false
+git config --global pager.status false
 
 git config --global user.email "jose.rodriguez@zecovery.com"
 git config --global user.name "Jose Rodriguez"

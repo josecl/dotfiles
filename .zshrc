@@ -121,7 +121,24 @@ export LANG=en_US.UTF-8
 # kubectl
 # get zsh complete kubectl
 source <(kubectl completion zsh)
-alias kubectl=kubecolor
+alias k=kubecolor
 # make completion work with kubecolor
+compdef k=kubectl
 compdef kubecolor=kubectl
 
+alias poc="export KUBECONFIG=~/.kube/config-huawei-poc"
+
+
+
+## Configruaciones que deben ir al final del .zshrc en un orden específico
+
+# brew install zsh-autosuggestions
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# brew install zsh-syntax-highlighting
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# brew install zsh-history-substring-search
+source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
