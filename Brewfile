@@ -100,6 +100,7 @@ brew 'htop'
 brew 'jq'
 # brew 'kubernetes-cli'
 brew 'minio-mc'
+brew 'neovim'
 brew 'pgcli'
 brew 'postgresql'
 brew 'pure' # tema de oh my sh
@@ -113,6 +114,7 @@ brew 'zsh-history-substring-search'
 brew 'dty1er/tap/kubecolor'
 cask 'lando'
 cask 'transmission'
+cask 'font-hack-nerd-font'
 cask 'font-jetbrains-mono'
 
 

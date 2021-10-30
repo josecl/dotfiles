@@ -57,6 +57,11 @@ git config --global user.email "jose.rodriguez@zecovery.com"
 git config --global user.name "Jose Rodriguez"
 
 
+# Neovim
+pip3 install pynvim
+
+
+
 # Create a Sites directory
 # mkdir $HOME/Sites
 mkdir $HOME/desa
