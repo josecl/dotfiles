@@ -3,12 +3,16 @@ Plug 'tpope/vim-projectionist'
 let g:projectionist_heuristics = {
     \ "artisan": {
     \   "*": {
-    \     "start": "sail up",
-    \     "console": "sail tinker",
+    \     "start": "dc up -d",
+    \     "console": "php artisan tinker",
     \   },
     \   "app/*Controller.php": {
     \     "type": "source",
     \     "alternate": "tests/Feature/{}ControllerTest.php",
+    \   },
+    \   "app/Services/*Service.php": {
+    \     "type": "source",
+    \     "alternate": "tests/Feature/Services/{}ServiceTest.php",
     \   },
     \   "app/**/Models/*.php": {
     \     "type": "source",

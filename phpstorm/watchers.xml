@@ -1,12 +1,12 @@
 <TaskOptions>
   <TaskOptions>
-    <option name="arguments" value="vendor/bin/ecs check --fix --quiet $FilePath$" />
+    <option name="arguments" value="vendor/bin/composer lint $FilePath$" />
     <option name="checkSyntaxErrors" value="true" />
     <option name="description" />
     <option name="exitCodeBehavior" value="NEVER" />
     <option name="fileExtension" value="php" />
     <option name="immediateSync" value="false" />
-    <option name="name" value="ecs" />
+    <option name="name" value="lint" />
     <option name="output" value="$FilePath$" />
     <option name="outputFilters">
       <array />

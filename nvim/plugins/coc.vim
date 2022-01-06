@@ -11,7 +11,7 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-pairs',
     \ 'coc-phpls',
-    \ 'coc-php-cs-fixer',
+    \ 'https://github.com/josecl/coc-ecs',
     \ 'coc-prettier',
     \ 'coc-sh',
     \ 'coc-snippets',

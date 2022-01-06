@@ -25,7 +25,6 @@ export DEFAULT_USER=jose
 #ZSH_THEME="minimal"
 ZSH_THEME="agnoster"
 
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -97,6 +96,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
+export EDITOR='nvim'
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
@@ -115,24 +115,42 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+##
+## Configruación de aplicaciones
+##
+
+# brew
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 # z
 . /opt/homebrew/etc/profile.d/z.sh
 
 # kubectl
 # get zsh complete kubectl
-source <(kubectl completion zsh)
+#source <(kubectl completion zsh)
+source ~/.dotfiles/kubectl-completion.zsh
 alias k=kubecolor
 # make completion work with kubecolor
-compdef k=kubectl
 compdef kubecolor=kubectl
+compdef k=kubectl
 
+# kube-ps1 (prompt con kubernetes)
+# Se puede habilitar a la izquierda o derecha:
+# - PS1=$PS1'$(kube_ps1)'
+# - RPROMPT='$(kube_ps1)'
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
 
+# helm
+#source <(helm completion zsh)
+source ~/.dotfiles/helm-completion.zsh
 
+# node 16 LTS en vez de versiones más recientes
+export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
 
 ##
 ## Configruaciones que deben ir al final del .zshrc en un orden específico
-##
-##
 ##
 
 # brew install zsh-autosuggestions
@@ -145,3 +163,7 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
+
+# Versión PHP por defecto
+export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"

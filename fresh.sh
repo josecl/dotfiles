@@ -36,6 +36,7 @@ pecl74 apcu install imagick redis
 
 # Install global Composer packages
 #/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose
+composer global require tightenco/takeout
 
 # Install Laravel Valet
 #$HOME/.composer/vendor/bin/valet install
@@ -43,7 +44,15 @@ pecl74 apcu install imagick redis
 
 # Aplicaciones via npm
 npm install puppeteer --global
-npm install chokidar --global
+npm install -g chokidar-cli
+
+# Git
+
+# Configuraciones globales
+git config --global init.defaultBranch master
+git config --global pull.rebase false
+git config --global user.email "jose.rodriguez@zecovery.com"
+git config --global user.name "Jose Rodriguez"
 
 # Deshabilita pager en Git
 #git config --global core.pager cat
@@ -53,14 +62,11 @@ git config --global pager.diff false
 git config --global pager.tag false
 git config --global pager.status false
 
-git config --global user.email "jose.rodriguez@zecovery.com"
-git config --global user.name "Jose Rodriguez"
 
 
 # Neovim
 pip3 install pynvim
-
-
+composer global require friendsofphp/php-cs-fixer
 
 # Create a Sites directory
 # mkdir $HOME/Sites
