@@ -1,142 +1,130 @@
-# Taps
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
-tap 'homebrew/bundle'
-tap 'nicoverbruggen/homebrew-cask'
-
-# Binaries
-brew 'awscli'
-brew 'bash' # Latest Bash version
-brew 'coreutils' # Those that come with macOS are outdated
-brew 'ffmpeg'
-brew 'gh'
-brew 'git'
-brew 'gnupg'
-brew 'grep'
-brew 'httpie'
-brew 'hub'
-brew 'mackup'
-brew 'mas' # Mac App Store manager
-brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
-#brew 'stripe/stripe-cli/stripe'
-brew 'svn'
-brew 'trash' # Manage the Trash bin
-brew 'tree' # List directories in a tree structure
-brew 'zlib' # Needed for Memcached
-
-# Spatie Medialibrary
-brew 'jpegoptim'
-brew 'optipng'
-brew 'pngquant'
-brew 'svgo'
-brew 'gifsicle'
-
-# Development
-brew 'php'
-brew 'php@7.4'
-#brew 'php@7.2'
-brew 'composer'
-brew 'imagemagick'
-brew 'libmemcached'
-brew 'meilisearch'
-#brew 'memcached'
-#brew 'mysql'
-#brew 'nginx'
-brew 'node@16'
-brew 'redis'
-brew 'yarn'
-
-# Apps
-#cask '1password'
-#cask 'caffeine'
-cask 'dbngin'
-#cask 'discord'
-cask 'docker'
-#cask 'figma'
-cask 'firefox'
-cask 'github'
-cask 'google-chrome'
-#cask 'google-drive'
-cask 'gpg-suite'
-cask 'imageoptim'
-cask 'insomnia'
-cask 'pastebot'
-#cask 'phpmon'
-cask 'phpstorm'
-#cask 'ray'
-cask 'screenflow'
-cask 'signal'
-cask 'slack'
-#cask 'tableplus'
-cask 'telegram-desktop'
-cask 'the-unarchiver'
-#cask 'tinkerwell'
-cask 'transmit'
-cask 'tunnelbear'
-#cask 'tuple'
-cask 'visual-studio-code'
-cask 'zoom'
-
-# Quicklook
-cask 'qlmarkdown'
-cask 'quicklook-json'
-
-# Fonts
-cask 'font-lato'
-cask 'font-open-sans'
-cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-source-code-pro'
-cask 'font-source-sans-pro'
-cask 'font-source-serif-pro'
-
-
-# Extra Jose
-brew 'brotli'
-brew 'calibre'
-brew 'cowsay'
-brew 'derailed/popeye/popeye'
-brew 'fzf'
-brew 'ghostscript'
-brew 'helm'
-brew 'htop'
-brew 'jq'
-brew 'k6'
-brew 'k9s'
-brew 'kube-ps1'
-brew 'kustomize'
-brew 'microsoft-edge'
-brew 'minio-mc'
-brew 'neovim'
-brew 'neovim-qt'
-brew 'pgcli'
-brew 'postgresql'
-brew 'postman'
-brew 'pure' # tema de oh my sh
-brew 'rg'
-brew 'siege'
-brew 'teamviewer'
-brew 'tldr'
-brew 'z'
-brew 'zsh-autosuggestions'
-brew 'zsh-syntax-highlighting'
-brew 'zsh-history-substring-search'
-brew 'dty1er/tap/kubecolor'
-cask 'lando'
-cask 'transmission'
-cask 'font-hack-nerd-font'
-cask 'font-jetbrains-mono'
-cask 'font-jetbrains-mono-nerd-font'
-
-
-
-# Mac App Store
-mas 'Byword', id: 420212497
-mas 'Giphy Capture', id: 668208984
-mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Spark', id: 1176895641
-mas 'Speedtest', id: 1153157709
-mas 'Things', id: 904280696
-mas 'Tweetbot', id: 1384080005
+tap "derailed/popeye"
+tap "dty1er/tap"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "nicoverbruggen/cask"
+tap "stripe/stripe-cli"
+brew "argocd"
+brew "awscli"
+brew "bash"
+brew "pcre"
+brew "pkg-config"
+brew "pcre2"
+brew "php", restart_service: true
+brew "composer"
+brew "coreutils"
+brew "cowsay"
+brew "ffmpeg"
+brew "fortune"
+brew "fzf"
+brew "gh"
+brew "ghostscript"
+brew "gifsicle"
+brew "git"
+brew "gnupg"
+brew "go"
+brew "grep"
+brew "helm"
+brew "htop"
+brew "httpie"
+brew "hub"
+brew "imagemagick"
+brew "jq"
+brew "k6"
+brew "k9s"
+brew "kube-ps1"
+brew "kustomize"
+brew "libmemcached"
+brew "lolcat"
+brew "mackup"
+brew "mas"
+brew "minio-mc"
+brew "neovim"
+brew "neovim-qt"
+brew "node@16"
+brew "optipng"
+brew "pgcli"
+brew "php@7.4"
+brew "php@8.0", restart_service: true
+brew "pngquant"
+brew "postgresql", restart_service: true
+brew "redis", restart_service: true
+brew "ripgrep"
+brew "s3cmd"
+brew "siege"
+brew "subversion"
+brew "svgo"
+brew "tldr"
+brew "trash"
+brew "tree"
+brew "wget"
+brew "yarn"
+brew "yq"
+brew "z"
+brew "zlib"
+brew "zsh-autosuggestions"
+brew "zsh-history-substring-search"
+brew "zsh-syntax-highlighting"
+brew "derailed/popeye/popeye"
+brew "dty1er/tap/kubecolor"
+cask "1password"
+cask "adobe-acrobat-reader"
+cask "caffeine"
+cask "calibre"
+cask "cyberduck"
+cask "dbngin"
+cask "discord"
+cask "docker"
+cask "figma"
+cask "firefox"
+cask "font-hack-nerd-font"
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-lato"
+cask "font-meslo-lg-nerd-font"
+cask "font-open-sans"
+cask "font-roboto"
+cask "font-source-code-pro"
+cask "font-source-code-pro-for-powerline"
+cask "font-source-sans-pro"
+cask "font-source-serif-pro"
+cask "github"
+cask "google-drive"
+cask "gpg-suite"
+cask "imageoptim"
+cask "insomnia"
+cask "iterm2"
+cask "lando"
+cask "microsoft-auto-update"
+cask "microsoft-edge"
+cask "ngrok"
+cask "pastebot"
+cask "postman"
+cask "qlmarkdown"
+cask "quicklook-json"
+cask "ray"
+cask "raycast"
+cask "screenflow"
+cask "signal"
+cask "slack"
+cask "tableplus"
+cask "teamviewer"
+cask "telegram-desktop"
+cask "the-unarchiver"
+cask "tinkerwell"
+cask "transmission"
+cask "transmit"
+cask "tunnelbear"
+cask "tuple"
+cask "visual-studio-code"
+cask "vlc"
+cask "zoom"
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
