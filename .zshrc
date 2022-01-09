@@ -138,7 +138,11 @@ compdef k=kubectl
 # Se puede habilitar a la izquierda o derecha:
 # - PS1=$PS1'$(kube_ps1)'
 # - RPROMPT='$(kube_ps1)'
+KUBE_PS1_PREFIX=''
+KUBE_PS1_SUFFIX=''
+KUBE_PS1_CTX_COLOR=blue
 source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+RPROMPT='$(kube_ps1)'
 
 # helm
 #source <(helm completion zsh)
