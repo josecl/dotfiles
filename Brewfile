@@ -47,7 +47,7 @@ brew "neovim-qt"
 brew "node@16"
 brew "optipng"
 brew "pgcli"
-brew "php@7.4"
+brew "php@7.4", restart_service: true
 brew "php@8.0", restart_service: true
 brew "pngquant"
 brew "postgresql", restart_service: true
@@ -91,6 +91,7 @@ cask "font-source-code-pro-for-powerline"
 cask "font-source-sans-pro"
 cask "font-source-serif-pro"
 cask "github"
+cask "google-chrome"
 cask "google-drive"
 cask "gpg-suite"
 cask "imageoptim"
@@ -119,7 +120,6 @@ cask "tuple"
 cask "visual-studio-code"
 cask "vlc"
 cask "zoom"
-mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
