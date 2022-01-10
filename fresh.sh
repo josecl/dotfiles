@@ -14,37 +14,44 @@ fi
 
 # Update Homebrew recipes
 brew update
+export BREW_PREFIX=$(brew --prefix)
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle
+brew bundle  --file ~/.dotfiles/Brewfile
 
 # Set default MySQL root password and auth type
 #mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
 
 # Install PHP extensions with PECL
-cp /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
-pecl pcov install imagick memcached redis swoole
+cp /$BREW_PREFIX/opt/pcre2/include/pcre2.h /$BREW_PREFIX/opt/php/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
+pecl install imagick openswoole pcov redis 
 
+
+# Php80
+ln -s /$BREW_PREFIX/opt/php@8.0/bin/php $BREW_PREFIX/bin/php80
+ln -s /$BREW_PREFIX/opt/php@8.0/bin/pecl $BREW_PREFIX/bin/pecl80
+cp /$BREW_PREFIX/opt/pcre2/include/pcre2.h /$BREW_PREFIX/opt/php@8.0/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
+pecl80 install imagick openswoole pcov redis 
 
 # Php74
-ln -s /opt/homebrew/opt/php@7.4/bin/php php74
-ln -s /opt/homebrew/opt/php@7.4/bin/pecl pecl74
-cp /opt/homebrew/opt/pcre2/include/pcre2.h /opt/homebrew/opt/php@7.4/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
-pecl74 apcu install imagick redis 
+ln -s /$BREW_PREFIX/opt/php@7.4/bin/php $BREW_PREFIX/bin/php74
+ln -s /$BREW_PREFIX/opt/php@7.4/bin/pecl $BREW_PREFIX/bin/pecl74
+cp /$BREW_PREFIX/opt/pcre2/include/pcre2.h /$BREW_PREFIX/opt/php@7.4/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
+pecl74 install apcu imagick redis 
+
 
 
 # Install global Composer packages
 #/usr/local/bin/composer global require laravel/installer laravel/valet beyondcode/expose
-composer global require tightenco/takeout
+composer global require tightenco/takeout friendsofphp/php-cs-fixer
 
 # Install Laravel Valet
 #$HOME/.composer/vendor/bin/valet install
 
 
 # Aplicaciones via npm
-npm install puppeteer --global
-npm install -g chokidar-cli
+npm install -g puppeteer chokidar-cli
 
 # Git
 
@@ -66,7 +73,6 @@ git config --global pager.status false
 
 # Neovim
 pip3 install pynvim
-composer global require friendsofphp/php-cs-fixer
 
 # Create a Sites directory
 # mkdir $HOME/Sites

@@ -1,6 +1,9 @@
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
+
+export BREW_PREFIX=$(brew --prefix)
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -123,7 +126,7 @@ export EDITOR='nvim'
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # z
-. /opt/homebrew/etc/profile.d/z.sh
+. $BREW_PREFIX/etc/profile.d/z.sh
 
 # kubectl
 # get zsh complete kubectl
@@ -141,7 +144,7 @@ compdef k=kubectl
 KUBE_PS1_PREFIX=''
 KUBE_PS1_SUFFIX=''
 KUBE_PS1_CTX_COLOR=blue
-source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+source $BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh
 RPROMPT='$(kube_ps1)'
 
 # helm
@@ -149,25 +152,25 @@ RPROMPT='$(kube_ps1)'
 source ~/.dotfiles/helm-completion.zsh
 
 # node 16 LTS en vez de versiones más recientes
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
+export PATH="/$BREW_PREFIX/opt/node@16/bin:$PATH"
+export LDFLAGS="-L/$BREW_PREFIX/opt/node@16/lib"
+export CPPFLAGS="-I/$BREW_PREFIX/opt/node@16/include"
 
 ##
 ## Configruaciones que deben ir al final del .zshrc en un orden específico
 ##
 
 # brew install zsh-autosuggestions
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # brew install zsh-syntax-highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # brew install zsh-history-substring-search
-source /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # Versión PHP por defecto
-export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
-export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"
+#export PATH="$BREW_PREFIX/opt/php@8.0/bin:$PATH"
+#export PATH="$BREW_PREFIX/opt/php@8.0/sbin:$PATH"
