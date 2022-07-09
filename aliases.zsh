@@ -76,7 +76,7 @@ alias php74-switch="brew unlink php && brew link --overwrite --force php@7.4"
 
 # Composer
 alias cfresh="rm -rf vendor/ composer.lock && composer i"
-alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
+#alias composer="php -d memory_limit=-1 /opt/homebrew/bin/composer"
 
 # Docker
 alias dc="docker-compose"
