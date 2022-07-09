@@ -1,7 +1,6 @@
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
-
 export BREW_PREFIX=$(brew --prefix)
 
 # If you come from bash you might have to change your $PATH.
@@ -76,7 +75,12 @@ ZSH_THEME="agnoster"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-HIST_STAMPS="dd/mm/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
+
+# History
+HISTSIZE=100000
+SAVEHIST=100000
+setopt HIST_EXPIRE_DUPS_FIRST
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=$DOTFILES
@@ -141,11 +145,16 @@ compdef k=kubectl
 # Se puede habilitar a la izquierda o derecha:
 # - PS1=$PS1'$(kube_ps1)'
 # - RPROMPT='$(kube_ps1)'
-KUBE_PS1_PREFIX=''
-KUBE_PS1_SUFFIX=''
-KUBE_PS1_CTX_COLOR=blue
-source $BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh
-RPROMPT='$(kube_ps1)'
+#KUBE_PS1_PREFIX=''
+#KUBE_PS1_SUFFIX=''
+#KUBE_PS1_CTX_COLOR=blue
+#source $BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh
+#RPROMPT='$(kube_ps1)'
+RPROMPT='%{$fg[blue]%}$(kcontext)%{$reset_color%}'
+
+# pandoc
+# pandoc --bash-completion
+source ~/.dotfiles/completion/pandoc.bash
 
 # helm
 #source <(helm completion zsh)
@@ -165,6 +174,9 @@ source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # brew install zsh-syntax-highlighting
 source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Evita delay al pegar contenido en el terminal
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 # brew install zsh-history-substring-search
 source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh

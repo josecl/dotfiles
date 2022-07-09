@@ -125,3 +125,14 @@ function weather() {
 alias tiempo="weather"
 alias lloret="weather lloret"
 alias santiago="weather santiago_de_chile"
+
+
+
+# Imprime el contexto actual en Kubernetes
+function kcontext()
+{
+  if [[ "$PWD" == "/Users/jose/desa/sem/kubernetes" ]]; then
+       kubectl config current-context
+  fi
+}
+
