@@ -141,6 +141,8 @@ alias k=kubecolor
 compdef kubecolor=kubectl
 compdef k=kubectl
 
+alias kubens="kubectl config set-context --current --namespace"
+
 # kube-ps1 (prompt con kubernetes)
 # Se puede habilitar a la izquierda o derecha:
 # - PS1=$PS1'$(kube_ps1)'

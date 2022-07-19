@@ -85,6 +85,27 @@ alias app="docker-compose exec --user $(id -u):$(id -g) app"
 
 # Kubernetes
 alias kubectl="kubecolor"
+alias kubectx="kubectl config use-context"
+alias kubens="kubectl config set-context --current --namespace"
+function kpsql()
+{
+  if [[ -z "$1" ]]; then 
+    echo "Uso:"
+    echo "    kpsql <microservicio>"
+    echo "    Ejemplo: kpsql tramitesgenerales"
+  else
+    kubectl run "psql-$1" --rm -it --image postgres:12 --env PGPASSWORD=$(kubectl get secret $1 -o jsonpath="{.data.DB_PASSWORD}" | base64 -d) -- psql -h $(kubectl get configmap servicios -o jsonpath="{.data.DB_HOST}") -U $(kubectl get configmap $1 -o jsonpath="{.data.DB_USERNAME}") $(kubectl get configmap $1 -o jsonpath="{.data.DB_DATABASE}")
+  fi
+}
+
+# Imprime el contexto actual en Kubernetes
+function kcontext()
+{
+  if [[ "$PWD" == "/Users/jose/desa/sem/kubernetes" ]]; then
+       kubectl config current-context
+  fi
+}
+
 
 # Git
 alias gst="git status"
@@ -128,11 +149,4 @@ alias santiago="weather santiago_de_chile"
 
 
 
-# Imprime el contexto actual en Kubernetes
-function kcontext()
-{
-  if [[ "$PWD" == "/Users/jose/desa/sem/kubernetes" ]]; then
-       kubectl config current-context
-  fi
-}
 
