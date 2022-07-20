@@ -23,6 +23,15 @@ brew bundle  --file ~/.dotfiles/Brewfile
 # Set default MySQL root password and auth type
 #mysql -u root -e "ALTER USER root@localhost IDENTIFIED WITH mysql_native_password BY 'password'; FLUSH PRIVILEGES;"
 
+
+# /usr/local/bin
+sudo mkdir /usr/local/bin
+
+# Comando "z"
+sudo curl https://raw.githubusercontent.com/rupa/z/master/z.sh --output /usr/local/bin/z
+sudo chmod 755 /usr/local/bin/z
+
+
 # Install PHP extensions with PECL
 cp /$BREW_PREFIX/opt/pcre2/include/pcre2.h /$BREW_PREFIX/opt/php/include/php/ext/pcre/pcre2.h # Previene error de compilacion de imagick
 pecl install imagick openswoole pcov redis 
