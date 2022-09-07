@@ -1,8 +1,6 @@
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
-export BREW_PREFIX=$(brew --prefix)
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -113,78 +111,15 @@ export EDITOR='nvim'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-##
-## Configruación de aplicaciones
-##
-
-# brew
-export HOMEBREW_NO_AUTO_UPDATE=1
-
-# z
-. $BREW_PREFIX/etc/profile.d/z.sh
-
-# kubectl
-# get zsh complete kubectl
-#source <(kubectl completion zsh)
-source ~/.dotfiles/kubectl-completion.zsh
-alias k=kubecolor
-# make completion work with kubecolor
-compdef kubecolor=kubectl
-compdef k=kubectl
-
-alias kubens="kubectl config set-context --current --namespace"
-
 # kube-ps1 (prompt con kubernetes)
 # Se puede habilitar a la izquierda o derecha:
 # - PS1=$PS1'$(kube_ps1)'
 # - RPROMPT='$(kube_ps1)'
-#KUBE_PS1_PREFIX=''
-#KUBE_PS1_SUFFIX=''
-#KUBE_PS1_CTX_COLOR=blue
-#source $BREW_PREFIX/opt/kube-ps1/share/kube-ps1.sh
 #RPROMPT='$(kube_ps1)'
 RPROMPT='%{$fg[blue]%}$(kcontext)%{$reset_color%}'
 
-# pandoc
-# pandoc --bash-completion
-source ~/.dotfiles/completion/pandoc.bash
 
-# helm
-#source <(helm completion zsh)
-source ~/.dotfiles/helm-completion.zsh
+# Configuraciones según el OS
+export UNAME=$(uname)
+source "$HOME/.dotfiles/zsh/$UNAME.zsh"
 
-# node 16 LTS en vez de versiones más recientes
-export PATH="/$BREW_PREFIX/opt/node@16/bin:$PATH"
-export LDFLAGS="-L/$BREW_PREFIX/opt/node@16/lib"
-export CPPFLAGS="-I/$BREW_PREFIX/opt/node@16/include"
-
-##
-## Configruaciones que deben ir al final del .zshrc en un orden específico
-##
-
-# brew install zsh-autosuggestions
-source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# brew install zsh-syntax-highlighting
-source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Evita delay al pegar contenido en el terminal
-zstyle ':bracketed-paste-magic' active-widgets '.self-*'
-
-# brew install zsh-history-substring-search
-source $BREW_PREFIX/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
-
-# Versión PHP por defecto
-#export PATH="$BREW_PREFIX/opt/php@8.0/bin:$PATH"
-#export PATH="$BREW_PREFIX/opt/php@8.0/sbin:$PATH"
