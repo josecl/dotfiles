@@ -50,6 +50,12 @@ alias unstage="git restore --staged ."
 alias wip="commit wip"
 
 
+function pushmr() {
+   branch="$(git branch --show-current)"
+   git push --set-upstream origin $branch -o merge_request.create -o merge_request.target=develop -o merge_request.title="$branch"
+}
+
+
 
 
 
