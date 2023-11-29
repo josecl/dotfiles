@@ -2,8 +2,8 @@
 export BREW_PREFIX=$(brew --prefix)
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-
-export PATH=/Users/jose/desa/sem/cli:$PATH
+#export PATH=/Users/jose/desa/sem/cli:$PATH
+export PATH=/Users/jose/.bin:$PATH
 
 
 # z
@@ -19,9 +19,13 @@ export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS
 #export LDFLAGS="-L$BREW_PREFIX/opt/node@16/lib"
 #export CPPFLAGS="-I$BREW_PREFIX/opt/node@16/include"
 # node 18 LTS en vez de versiones más recientes
-export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/node@18/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/node@18/include"
+#export PATH="/opt/homebrew/opt/node@18/bin:$PATH"
+#export LDFLAGS="-L/opt/homebrew/opt/node@18/lib"
+#export CPPFLAGS="-I/opt/homebrew/opt/node@18/include"
+# node 20
+export PATH="/opt/homebrew/opt/node@20/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@20/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@20/include"
 
 # Shortcuts
 alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'

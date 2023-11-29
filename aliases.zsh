@@ -9,7 +9,7 @@ alias sudo='sudo '
 # Shortcuts
 alias reloadshell="source $HOME/.zshrc"
 alias sshconfig="vi ~/.ssh/config"
-alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
+#alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
 alias c="clear"
 alias root="sudo zsh"
 alias vi="nvim"
@@ -24,9 +24,8 @@ alias pg="pgcli postgresql://postgres@localhost/"
 # TODO: codd, fnet3, etc.
 
 # Docker
-alias dc="docker-compose"
-alias dclogs="dc logs -f --tail 50"
-alias app="docker-compose exec --user $(id -u):$(id -g) app"
+alias dc="docker compose"
+alias dclogs="dc logs -f --tail 500"
 
 
 # Git
