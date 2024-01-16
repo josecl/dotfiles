@@ -4,12 +4,37 @@
 alias a="php artisan"
 alias fresh="php artisan migrate:fresh --seed"
 alias seed="php artisan db:seed"
-alias p="clear && pest"
-alias pp="clear && pest --parallel"
-alias pf="clear && pest --filter"
-alias lt="tail -100 -f storage/logs/laravel.log"
+alias p="pest"
+alias pp="pest --parallel"
+alias ppf="pest --parallel --filter"
+alias pf="pest --filter"
 alias t="tinker"
 #alias ppc="chokidar '**/*.php' --debounce 700 --command 'clear && pest --parallel && date'"
+
+function tl()
+{
+  (
+    while [[ ! -d "storage" && $PWD != "/" ]]; do
+      cd ..
+    done
+
+    if [ -d "storage" ]; then
+      tail -n 300 -f storage/logs/laravel.log |\
+        sed -E '
+          # JSON
+          s/( \{".*\}?)/\x1B[38;5;110m\1\x1B[39m/;
+          # traces
+          s/^(#[0-9]+ .*\/vendor\/.*)/\x1B[38;5;242m\1\x1B[39m/;
+          s/^(#[0-9]+ .*)/\x1B[38;5;248m\1\x1B[39m/;
+          # Exceptions
+          s/([a-zA-Z]*Exception)([^A-Za-z])/\x1B[32m\1\x1B[39m\2/;
+          # severidad: ERROR, WARNING, ...
+          s/\.(ERROR): /.\x1B[31m\1\x1B[39m: /;
+          s/\.(WARN(ING)?): /.\x1B[33m\1\x1B[39m: /;
+        '
+    fi
+  )
+}
 
 function pc()
 {
@@ -34,6 +59,7 @@ function tinker()
     else
        php artisan tinker --execute="dd($1);"
   fi
+  return 0
 }
 
 # Postgres
