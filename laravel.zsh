@@ -2,6 +2,7 @@
 
 # Laravel
 alias a="php artisan"
+alias c="composer"
 alias fresh="php artisan migrate:fresh --seed"
 alias seed="php artisan db:seed"
 alias p="pest"
@@ -29,7 +30,7 @@ function tl()
           # Exceptions
           s/([a-zA-Z]*Exception)([^A-Za-z])/\x1B[32m\1\x1B[39m\2/;
           # severidad: ERROR, WARNING, ...
-          s/\.(ERROR): /.\x1B[31m\1\x1B[39m: /;
+          s/\.(ERROR|ALERT|CRITICAL): /.\x1B[31m\1\x1B[39m: /;
           s/\.(WARN(ING)?): /.\x1B[33m\1\x1B[39m: /;
         '
     fi

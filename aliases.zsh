@@ -10,7 +10,6 @@ alias sudo='sudo '
 alias reloadshell="source $HOME/.zshrc"
 alias sshconfig="vi ~/.ssh/config"
 #alias phpstorm='open -a /Applications/PhpStorm.app "`pwd`"'
-alias c="clear"
 alias root="sudo zsh"
 alias vi="nvim"
 alias d='ls -l'
